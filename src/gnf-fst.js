@@ -70,6 +70,7 @@ class Gnffst {
     }
     getFunction(direction) {
         let callback = this.callbacks.get(this.focus);
+if (callback===undefined || callback[direction]===undefined || callback[direction]===null) return;
         if (typeof callback[direction] === "function") {
             callback[direction](this);
         }
@@ -118,3 +119,4 @@ class Gnffst {
         this.setPos(x, y);
     }
 }
+window.gnf = new Gnffst();
